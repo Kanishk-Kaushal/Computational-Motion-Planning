@@ -49,30 +49,30 @@ end
 
 function Point_Status = Is_Point_in_Triangle(Point,a,b,c)
 
-% Point Status  => True => Point Present in Triangle & False => Point
-% Outside triangle
+    % Point Status  => True => Point Present in Triangle & False => Point
+    % Outside triangle
 
-% This Problem is solved using Convex Hull's Principles
-% Refer : https://mathworld.wolfram.com/TriangleInterior.html
+    % This Problem is solved using Convex Hull's Principles
+    % Refer : https://mathworld.wolfram.com/TriangleInterior.html
 
-AC_Vector = c - a;
-BA_Vector = b - a;
-PA_Vector = Point - a;
+    AC_Vector = c - a;
+    BA_Vector = b - a;
+    PA_Vector = Point - a;
 
-Dot_AC_AC = dot(AC_Vector, AC_Vector);
-Dot_AC_BA = dot(AC_Vector, BA_Vector);
-Dot_AC_PA = dot(AC_Vector, PA_Vector);
-Dot_BA_BA = dot(BA_Vector, BA_Vector);
-Dot_BA_PA = dot(BA_Vector, PA_Vector);
+    Dot_AC_AC = dot(AC_Vector, AC_Vector);
+    Dot_AC_BA = dot(AC_Vector, BA_Vector);
+    Dot_AC_PA = dot(AC_Vector, PA_Vector);
+    Dot_BA_BA = dot(BA_Vector, BA_Vector);
+    Dot_BA_PA = dot(BA_Vector, PA_Vector);
 
-invDenom = 1/(Dot_AC_AC*Dot_BA_BA - Dot_AC_BA*Dot_AC_BA);
-U = (Dot_BA_BA*Dot_AC_PA - Dot_AC_BA*Dot_BA_PA)*invDenom;
-V = (Dot_AC_AC*Dot_BA_PA - Dot_AC_BA*Dot_AC_PA)*invDenom;
+   Inverse_Denominator = 1/(Dot_AC_AC*Dot_BA_BA - Dot_AC_BA*Dot_AC_BA);
+    U = (Dot_BA_BA*Dot_AC_PA - Dot_AC_BA*Dot_BA_PA)*Inverse_Denominator;
+    V = (Dot_AC_AC*Dot_BA_PA - Dot_AC_BA*Dot_AC_PA)*Inverse_Denominator;
 
-Point_Status = ((U >= 0) && (V >= 0) && (U + V) <= 1);
+    Point_Status = ((U >= 0) && (V >= 0) && (U + V) <= 1);
 
-% Another and "Easier-To-Understand BUT Harder-To-Computer" Method would be if a Point P lies 
-% inside a Triangle ABC then Area(ABC) = Area(PAB) + Area(PBC) + Area(PCA)
-% The Area could be calculated using Heron's Formula.
+    % Another and "Easier-To-Understand BUT Harder-To-Computer" Method would be if a Point P lies 
+    % inside a Triangle ABC then Area(ABC) = Area(PAB) + Area(PBC) + Area(PCA)
+    % The Area could be calculated using Heron's Formula.
 
 end
