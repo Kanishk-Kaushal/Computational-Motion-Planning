@@ -1,3 +1,3 @@
 # Computational-Motion-Planning
 
-Motion Planning for Robots
+Learning Motion Planning for Robots
